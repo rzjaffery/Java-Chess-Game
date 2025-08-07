@@ -20,36 +20,21 @@ A fully functional Chess game built using **Java Swing**. The game supports play
 ## 📷 Screenshots
 <img width="641" height="743" alt="image" src="https://github.com/user-attachments/assets/00ddffd8-3000-43c5-85a1-8b51eab590aa" />
 
-
 ## 🛠 Technologies Used
 
 - Java 8+
 - Java Swing for GUI
 - Object-Oriented Programming (OOP)
 
-## Project Structure
-
-```bash
-.
-├── src/
-│   ├── ChessGame.java         # Main class to launch the game
-│   ├── Board.java             # Chessboard setup and logic
-│   ├── Piece.java             # Abstract class for chess pieces
-│   ├── Pawn.java, Rook.java, etc. # Specific piece logic
-│   ├── MoveValidator.java     # Logic to check legal moves
-│   └── ScoreManager.java      # Score updating logic
-├── README.md
-├── screenshot.png
-
-```
 ## How to Run
-1 - Clone the repository \
- - git clone **https://github.com/rzjaffery/Java-Chess-Game.git** \
+1 Clone the repository \
+ - git clone **https://github.com/rzjaffery/Java-Chess-Game.git** 
  - cd java-chess-game
-2 - Compile and run the game
+
+2 Compile and run the game
 ```
-javac ChessGame.java
-java ChessGame
+javac ChessGameGUI.java
+java ChessGameGUI
 ```
 ## Known Issues / To-Do
 - No AI or multiplayer over network
