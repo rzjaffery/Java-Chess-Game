@@ -16,9 +16,13 @@ public class Chessboard {
         return board;
     }
 
-    public Piece getPiece (int row, int column) {
-        return board[row][column];
+    public Piece getPiece(int row, int col) {
+        if (row >= 0 && row < board.length && col >= 0 && col < board[0].length) {
+            return board[row][col];
+        }
+        return null;
     }
+
 
     public void setPiece (int row, int column, Piece piece) {
         board[row][column] = piece;

@@ -3,24 +3,23 @@ package org.rzjaffery.chesspieces;
 import org.rzjaffery.chessboard.Piece;
 import org.rzjaffery.chessboard.PieceColor;
 import org.rzjaffery.utils.Position;
-
 public class King extends Piece {
-    public King (PieceColor pieceColor, Position position) {
-        super (pieceColor, position);
+    public King(PieceColor color, Position position) {
+        super(color, position);
     }
 
     @Override
-    public boolean isValidMove (Position newPosition, Piece[][] board) {
-        int rowDiff = Math.abs (newPosition.getRow () - position.getRow ());
-        int colDiff = Math.abs (newPosition.getColumn () - position.getColumn ());
+    public boolean isValidMove(Position newPosition, Piece[][] board) {
+        int rowDiff = Math.abs(position.getRow() - newPosition.getRow());
+        int colDiff = Math.abs(position.getColumn() - newPosition.getColumn());
 
-        // King can move only one square in any direction
-        boolean isOneSquareMove = rowDiff <=1 && colDiff<=1 && !(rowDiff==0 && colDiff==0);
-        if (!isOneSquareMove){
-            return false; // move is not withing one square
+        boolean isOneSquareMove = rowDiff <= 1 && colDiff <= 1 && !(rowDiff == 0 && colDiff == 0);
+
+        if (!isOneSquareMove) {
+            return false;
         }
 
-        Piece destinationPiece = board[newPosition.getRow ()][newPosition.getColumn ()];
-        return destinationPiece == null || destinationPiece.getPieceColor () != this.getPieceColor ();
+        Piece destinationPiece = board[newPosition.getRow()][newPosition.getColumn()];
+        return destinationPiece == null || destinationPiece.getColor() != this.getColor();
     }
 }

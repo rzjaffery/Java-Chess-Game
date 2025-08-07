@@ -3,34 +3,35 @@ package org.rzjaffery.chesspieces;
 import org.rzjaffery.chessboard.Piece;
 import org.rzjaffery.chessboard.PieceColor;
 import org.rzjaffery.utils.Position;
-
 public class Knight extends Piece {
-    public Knight (PieceColor pieceColor, Position position) {
-        super (pieceColor, position);
+    public Knight(PieceColor color, Position position) {
+        super(color, position);
     }
 
     @Override
-    public boolean isValidMove (Position newPosition, Piece[][] board) {
+    public boolean isValidMove(Position newPosition, Piece[][] board) {
+        if (position.equals(newPosition)) {
+            return false;
+        }
 
-        if (newPosition.equals (this.position))
-            return false; // cannot move to the same position
+        if (newPosition.equals(this.position)) {
+            return false;
+        }
 
-        int rowDiff = Math.abs (this.position.getRow () - newPosition.getRow ());
-        int colDiff = Math.abs (this.position.getColumn () - newPosition.getColumn ());
+        int rowDiff = Math.abs(this.position.getRow() - newPosition.getRow());
+        int colDiff = Math.abs(this.position.getColumn() - newPosition.getColumn());
 
-        // check for 'L' shaped move pattern
-        boolean isValidMove = (rowDiff == 2 && colDiff == 1) || (rowDiff == 1 && colDiff == 2);
+        boolean isValidLMove = (rowDiff == 2 && colDiff == 1) || (rowDiff == 1 && colDiff == 2);
 
-        if (!isValidMove)
-            return false; // Not a valid Knight move
+        if (!isValidLMove) {
+            return false;
+        }
 
-        Piece targetPiece = board[newPosition.getRow ()][newPosition.getColumn ()];
-
+        Piece targetPiece = board[newPosition.getRow()][newPosition.getColumn()];
         if (targetPiece == null) {
-            return true; // the square is empty therefore move is valid
+            return true;
         } else {
-            // can capture opponent's piece if change of color
-            return targetPiece.getPieceColor () != this.getPieceColor ();
+            return targetPiece.getColor() != this.getColor();
         }
     }
 }
