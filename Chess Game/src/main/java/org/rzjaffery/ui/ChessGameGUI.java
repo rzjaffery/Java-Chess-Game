@@ -160,7 +160,7 @@ public class ChessGameGUI extends JFrame {
             }
         }
     }
-    
+
 
     // added a menu with reset option
     private void addGameResetOption () {
