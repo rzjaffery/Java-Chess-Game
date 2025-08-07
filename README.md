@@ -44,7 +44,7 @@ A fully functional Chess game built using **Java Swing**. The game supports play
 ```
 ## How to Run
 1 - Clone the repository \
- - git clone **https://github.com/yourusername/java-chess-game.git** \
+ - git clone **https://github.com/rzjaffery/Java-Chess-Game.git** \
  - cd java-chess-game
 2 - Compile and run the game
 ```
